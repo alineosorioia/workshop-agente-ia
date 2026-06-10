@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Workshop Criando seu Agente de IA para WhatsApp com GPT Maker</title>
+
+  <!-- Meta tags para compartilhamento -->
+  <meta name="description" content="Aprenda em 2h30 a criar um Agente de IA para WhatsApp que atende e qualifica clientes 24h por dia, sem código. Workshop ao vivo · 25 de junho · R$69." />
+  <meta property="og:title" content="Workshop: Criando seu Agente de IA para WhatsApp com GPT Maker" />
+  <meta property="og:description" content="Aprenda em 2h30 a criar um Agente de IA que atende e qualifica clientes no WhatsApp, 24h por dia, sem precisar entender de código. Ao vivo · 25/06 · R$69." />
+  <meta property="og:image" content="https://alineosorioia.github.io/workshop-agente-ia/foto-aline-osorio.jpg" />
+  <meta property="og:url" content="https://alineosorioia.github.io/workshop-agente-ia/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Workshop: Criando seu Agente de IA para WhatsApp" />
+  <meta name="twitter:description" content="2h30 ao vivo · Sem código · 25 de junho · R$69" />
+  <meta name="twitter:image" content="https://alineosorioia.github.io/workshop-agente-ia/foto-aline-osorio.jpg" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -641,6 +654,72 @@
       .hero h1 { font-size: 26px; }
       .section-title { font-size: 24px; }
     }
+
+    /* ── COUNTDOWN ── */
+    .countdown-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 28px 0 32px;
+    }
+    .countdown-block {
+      background: rgba(124,58,237,0.15);
+      border: 1px solid var(--purple);
+      border-radius: 10px;
+      padding: 12px 18px;
+      text-align: center;
+      min-width: 72px;
+    }
+    .countdown-block .num {
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      display: block;
+    }
+    .countdown-block .lbl {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+      display: block;
+    }
+    @media (max-width: 480px) {
+      .countdown-block { min-width: 58px; padding: 10px 12px; }
+      .countdown-block .num { font-size: 26px; }
+    }
+
+    /* ── STICKY CTA MOBILE ── */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 999;
+      background: #0A0A0A;
+      border-top: 1px solid var(--purple);
+      padding: 12px 20px;
+    }
+    .sticky-cta a {
+      display: block;
+      background: var(--green);
+      color: #000;
+      font-weight: 800;
+      font-size: 16px;
+      text-align: center;
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .sticky-cta .sticky-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+    @media (max-width: 768px) {
+      .sticky-cta { display: block; }
+      body { padding-bottom: 90px; }
+    }
   </style>
 </head>
 <body>
@@ -684,6 +763,14 @@
         <a href="https://pay.hotmart.com/O106213208N?checkoutMode=10" class="btn">QUERO CRIAR MEU AGENTE DE IA — R$69</a>
         <div class="parcel-note">ou 9x de R$9,07 no cartão</div>
         <small>Acesso imediato após confirmação · Garantia de 7 dias</small>
+      </div>
+
+      <!-- COUNTDOWN -->
+      <div class="countdown-wrap" id="countdown">
+        <div class="countdown-block"><span class="num" id="cd-days">--</span><span class="lbl">dias</span></div>
+        <div class="countdown-block"><span class="num" id="cd-hours">--</span><span class="lbl">horas</span></div>
+        <div class="countdown-block"><span class="num" id="cd-min">--</span><span class="lbl">min</span></div>
+        <div class="countdown-block"><span class="num" id="cd-sec">--</span><span class="lbl">seg</span></div>
       </div>
 
       <div class="hero-proof">
@@ -747,9 +834,15 @@
   <section class="agitation">
     <div class="container">
       <div class="agitation-box">
-        <p>Cada mensagem sem resposta é um cliente que foi embora — provavelmente para o concorrente.</p>
-        <p>Escalar o atendimento contratando mais gente é caro. Continuar respondendo tudo você mesmo é insustentável. E ficar parado enquanto outros negócios já usam IA? Essa janela está fechando.</p>
-        <p class="virada">A boa notícia é que isso tem solução — <span>e ela é mais simples do que você imagina.</span></p>
+        <span class="agitation-wpp-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="24" fill="#25D366"/>
+            <path d="M34.5 13.5C32 11 28.7 9.5 25.1 9.5C17.6 9.5 11.5 15.6 11.5 23.1C11.5 25.6 12.2 28 13.4 30.1L11.3 38.5L19.9 36.4C21.9 37.5 24.1 38.1 26.4 38.1H26.4C33.9 38.1 40 32 40 24.5C40 20.9 38.6 17.5 36.1 15L34.5 13.5ZM25.1 35.6C23.1 35.6 21.1 35.1 19.4 34.1L18.9 33.8L14.5 34.9L15.6 30.6L15.3 30.1C14.2 28.3 13.6 26.2 13.6 24C13.6 17.8 18.7 12.7 25.2 12.7C28.3 12.7 31.2 13.9 33.4 16.1C35.6 18.3 36.8 21.3 36.8 24.4C36.7 30.9 31.6 35.6 25.1 35.6ZM31.5 27C31.2 26.8 29.6 26 29.3 25.9C29 25.8 28.8 25.7 28.6 26C28.4 26.3 27.8 26.9 27.6 27.2C27.4 27.4 27.2 27.4 26.9 27.3C25.5 26.6 24.5 26.1 23.4 24.5C23.1 24 23.7 24 24.2 23C24.3 22.8 24.2 22.6 24.1 22.4C24 22.2 23.4 20.6 23.1 19.9C22.9 19.2 22.6 19.3 22.4 19.3C22.2 19.3 22 19.3 21.8 19.3C21.6 19.3 21.2 19.4 20.9 19.7C20.6 20 19.8 20.8 19.8 22.4C19.8 24 20.9 25.5 21.1 25.7C21.3 25.9 23.4 29.2 26.6 30.6C28.8 31.5 29.6 31.6 30.6 31.4C31.2 31.3 32.5 30.6 32.8 29.8C33.1 29 33.1 28.3 33 28.2C32.9 28 32.7 27.9 32.4 27.7L31.5 27Z" fill="white"/>
+          </svg>
+        </span>
+        <p>Cada mensagem sem resposta no WhatsApp é <span class="verde">um cliente que foi embora</span> — provavelmente pro concorrente que respondeu primeiro.</p>
+        <p>Você não precisa contratar atendente. Não precisa ficar colado no celular. E não precisa saber programar. <span class="verde">Você precisa de um Agente de IA trabalhando por você.</span></p>
+        <p class="virada">A boa notícia: <span>dá pra criar o seu em 2h30 — e vai sair do workshop com ele funcionando.</span></p>
       </div>
     </div>
   </section>
@@ -1094,6 +1187,45 @@
       </a>
     </p>
   </footer>
+
+  <!-- STICKY CTA MOBILE -->
+  <div class="sticky-cta" id="sticky-cta">
+    <a href="https://pay.hotmart.com/O106213208N?checkoutMode=10">GARANTIR MINHA VAGA — R$69</a>
+    <p class="sticky-note">ou 9x de R$9,07 · Acesso imediato</p>
+  </div>
+
+  <script>
+    // Countdown até 25/06/2026 19:00 (horário de Brasília = UTC-3)
+    const eventDate = new Date('2026-06-25T19:00:00-03:00');
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = '<p style="color:var(--green);font-weight:700;">O workshop está acontecendo agora! 🎉</p>';
+        return;
+      }
+      const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+      document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+      document.getElementById('cd-min').textContent   = String(mins).padStart(2,'0');
+      document.getElementById('cd-sec').textContent   = String(secs).padStart(2,'0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Esconde sticky CTA quando hero CTA estiver visível
+    const heroCta = document.querySelector('.hero-cta-wrapper');
+    const stickyCta = document.getElementById('sticky-cta');
+    if (heroCta && stickyCta) {
+      const obs = new IntersectionObserver(entries => {
+        stickyCta.style.display = entries[0].isIntersecting ? 'none' : '';
+      }, { threshold: 0.1 });
+      obs.observe(heroCta);
+    }
+  </script>
 
 </body>
 </html>
